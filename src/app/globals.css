@@ -1,26 +1,64 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0f1117;
+  --foreground: #e4e4e7;
+  --surface: #1a1b23;
+  --surface-hover: #22232d;
+  --border: #2e2f3a;
+  --border-active: #4f46e5;
+  --accent: #6366f1;
+  --accent-hover: #818cf8;
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --muted: #71717a;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-border: var(--border);
+  --color-border-active: var(--border-active);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+  --color-muted: var(--muted);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+}
+
+/* CodeMirror overrides for consistent styling */
+.cm-editor {
+  font-size: 13px !important;
+  background: transparent !important;
+}
+.cm-editor .cm-gutters {
+  background: transparent !important;
+  border-right: 1px solid var(--border) !important;
+}
+.cm-editor .cm-activeLineGutter,
+.cm-editor .cm-activeLine {
+  background: rgba(99, 102, 241, 0.06) !important;
+}
+.cm-editor.cm-focused {
+  outline: none !important;
+}
+.cm-editor .cm-selectionBackground {
+  background: rgba(99, 102, 241, 0.2) !important;
 }
